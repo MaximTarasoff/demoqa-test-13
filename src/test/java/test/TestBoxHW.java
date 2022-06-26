@@ -22,13 +22,19 @@ public class TestBoxHW {
     @Test
     void successfulTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
 
-        $("[id=firstName]").setValue("Maxim");
-        $("[id=lastName]").setValue("Tarasoff");
-        $("[id=userEmail]").setValue("360m@mail.ru");
-        $("[id=gender-radio-1]").doubleClick();
-        $("[id=userNumber").setValue("89296349550");
-        $("[id=dateOfBirthInput]").click();
+        $("#firstName").setValue("Maxim");
+        $("#lastName").setValue("Tarasoff");
+
+        $("#userEmail").setValue("360m@mail.ru");
+
+        $("#gender-radio-1").doubleClick();
+
+        $("#userNumber").setValue("89296349550");
+
+        $("#dateOfBirthInput").click();
         $(By.className("react-datepicker__month-select")).selectOptionByValue("0");
         $(By.className("react-datepicker__year-select")).selectOptionByValue("2020");
         $(By.className("react-datepicker__day--009")).click();
@@ -52,16 +58,7 @@ public class TestBoxHW {
 
         $("#submit").click();
 
-        $(".modal-content").shouldHave(
-                text("Maxim"),
-                text("Tarasoff"),
-                text("360m@mail.ru"),
-                text("Male"),
-                text("09 January,2020"),
-                text("Sports, Music"),
-                text("AAAAAAAAAAAAAAAAAAAAA.jpg"),
-                text("If you know, you know"),
-                text("Uttar Pradesh Lucknow"));
+        $(".modal-content").shouldHave(text("Maxim"), text("Tarasoff"), text("360m@mail.ru"), text("Male"), text("09 January,2020"), text("Sports, Music"), text("AAAAAAAAAAAAAAAAAAAAA.jpg"), text("If you know, you know"), text("Uttar Pradesh Lucknow"));
 
     }
 }
