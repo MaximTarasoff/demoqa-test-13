@@ -28,7 +28,7 @@ public class JUnit5Examples {
     void secondTest() {
         System.out.println("==========Started first test");
     }
-    
+
     @AfterAll
     static void afterAll() {
         System.out.println("== Something after ALL tests");
