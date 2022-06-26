@@ -30,14 +30,14 @@ public class TestBoxHW {
 
         $("#userEmail").setValue("360m@mail.ru");
 
-        $("#gender-radio-1").doubleClick();
+        $(byText("Male")).doubleClick();
 
         $("#userNumber").setValue("89296349550");
 
         $("#dateOfBirthInput").click();
-        $(By.className("react-datepicker__month-select")).selectOptionByValue("0");
-        $(By.className("react-datepicker__year-select")).selectOptionByValue("2020");
-        $(By.className("react-datepicker__day--009")).click();
+        $(".react-datepicker__month-select").selectOptionByValue("0");
+        $(".react-datepicker__year-select").selectOptionByValue("2020");
+        $(byText("9")).click();
 
         $(".subjects-auto-complete__input").click();
         $("#subjectsInput").sendKeys("Physics");
@@ -58,7 +58,16 @@ public class TestBoxHW {
 
         $("#submit").click();
 
-        $(".modal-content").shouldHave(text("Maxim"), text("Tarasoff"), text("360m@mail.ru"), text("Male"), text("09 January,2020"), text("Sports, Music"), text("AAAAAAAAAAAAAAAAAAAAA.jpg"), text("If you know, you know"), text("Uttar Pradesh Lucknow"));
+        $(".modal-content").shouldHave(
+                text("Maxim"),
+                text("Tarasoff"),
+                text("360m@mail.ru"),
+                text("Male"),
+                text("09 January,2020"),
+                text("Sports, Music"),
+                text("AAAAAAAAAAAAAAAAAAAAA.jpg"),
+                text("If you know, you know"),
+                text("Uttar Pradesh Lucknow"));
 
     }
 }
